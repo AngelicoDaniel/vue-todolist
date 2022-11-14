@@ -18,6 +18,8 @@ var app = new Vue({
       ]
     },
     methods: {
-  
+        remove(index){
+            this.todoList.splice( index, 1 );
+        },
     }
   })
