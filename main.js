@@ -2,7 +2,6 @@ var app = new Vue({
     el: '#root',
     data: {
       newTodo: '',
-
       todoList: [
         {
             text: 'comprare il pane',
@@ -16,7 +15,8 @@ var app = new Vue({
             text: 'comprare l\'acqua',
             done: false,
         }
-      ]
+      ],
+      doneTodo: '',
     },
     methods: {
         remove(index){
