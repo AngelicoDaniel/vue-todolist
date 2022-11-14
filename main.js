@@ -24,9 +24,9 @@ var app = new Vue({
         },
         toggle(elem){
             if( elem.done == true){
-                elem.done == false;
+                elem.done = false;
             } else {
-                elem.done == true;
+                elem.done = true;
             }
         },
         addTodo(){
