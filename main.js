@@ -1,7 +1,7 @@
 var app = new Vue({
     el: '#root',
     data: {
-      newTodo: '',
+      newTodo: [],
       todoList: [
         {
             text: 'comprare il pane',
@@ -16,13 +16,23 @@ var app = new Vue({
             done: false,
         }
       ],
-      doneTodo: '',
+      doneTodo: [],
     },
+    beforeUpdate() {
+        this.todoList.forEach( (elem, index) =>{
+            if (elem.done == true){
+                this.doneTodo.push( elem );
+                this.todoList.splice( index ,1 )
+            }
+        } );
+    },
+
     methods: {
-        remove(index){
+        remove(index){ 
             this.todoList.splice( index, 1 );
         },
-        toggle(elem){
+        
+        todoCompleted(elem, index){
             if( elem.done == true){
                 elem.done = false;
             } else {
@@ -33,7 +43,7 @@ var app = new Vue({
             if (this.newTodo.trim() != '') {
                 this.todoList.push({
                     text: this.newTodo,
-                    done:false,
+                    done: false,
                 });
                 this.newTodo='';
             }
