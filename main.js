@@ -1,8 +1,21 @@
 var app = new Vue({
     el: '#root',
     data: {
-      messaggio: 'todo',
-      classeDinamica: 'text-primary'
+      doneTodo: '',
+      todoList: [
+        {
+            text: 'comprare il pane',
+            done: false,
+        },
+        {
+            text: 'comprare il latte',
+            done: false,
+        },
+        {
+            text: 'comprare l\'acqua',
+            done: false,
+        }
+      ]
     },
     methods: {
   
