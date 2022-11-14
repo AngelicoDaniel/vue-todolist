@@ -1,7 +1,8 @@
 var app = new Vue({
     el: '#root',
     data: {
-      doneTodo: '',
+      newTodo: '',
+
       todoList: [
         {
             text: 'comprare il pane',
@@ -20,6 +21,22 @@ var app = new Vue({
     methods: {
         remove(index){
             this.todoList.splice( index, 1 );
+        },
+        toggle(elem){
+            if( elem.done == true){
+                elem.done == false;
+            } else {
+                elem.done == true;
+            }
+        },
+        addTodo(){
+            if (this.newTodo.trim() != '') {
+                this.todoList.push({
+                    text: this.newTodo,
+                    done:false,
+                });
+                this.newTodo='';
+            }
         },
     }
   })
